@@ -1,0 +1,113 @@
+@import "../../style/mixins.scss";
+
+.iteration {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  @include mobile {
+    height: 100%;
+  }
+
+  &-question {
+    width: 80%;
+    background: linear-gradient(#100241, #000);
+    border: 2px solid rgb(176, 170, 61);
+    text-align: center;
+    padding: 20px;
+    border-radius: 50px;
+    font-size: 20px;
+
+    @include mobile {
+      width: 90%;
+      font-size: 17px;
+    }
+  }
+
+  &-answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-answer {
+      width: 35%;
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+      background: linear-gradient(#0e0124, #22074d);
+      border: 1px solid rgb(176, 170, 61);
+      border-radius: 50px;
+      font-size: 20px;
+      margin: 0px 10px 20px 10px;
+
+      @include mobile {
+        width: 80%;
+        font-size: 15px;
+        padding: 8px;
+        margin: 15px 5px 5px 5px;
+      }
+
+      &:hover {
+        background: rgb(0, 0, 135);
+      }
+    }
+  }
+}
+
+.button-active {
+  background: rgb(0, 0, 135);
+}
+
+.correct {
+  animation: correct 3s ease forwards;
+}
+
+.wrong {
+  animation: wrong 3s ease forwards;
+}
+
+@keyframes correct {
+  0%,
+  22%,
+  42% {
+    background: rgb(0, 0, 135);
+  }
+
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#0e0124, #22074d);
+  }
+
+  62%,
+  100% {
+    background: rgb(25, 135, 0);
+  }
+}
+
+@keyframes wrong {
+  0%,
+  22%,
+  42% {
+    background: rgb(0, 0, 135);
+  }
+
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#0e0124, #22074d);
+  }
+
+  62%,
+  100% {
+    background: rgb(135, 0, 0);
+  }
+}
